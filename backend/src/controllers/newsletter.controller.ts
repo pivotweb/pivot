@@ -26,5 +26,6 @@ export const subscribeToNewsletter = async (
     console.log("Successfully subscribed to newsletter.");
   } catch (error) {
     res.status(500).json({ message: "Something went wrong.", error });
+    console.log({ message: "Something went wrong.", error });
   }
 };
