@@ -1,21 +1,26 @@
 import mongoose, { Document, Schema } from 'mongoose';
 
 export interface IContact extends Document {
+          name: string;
           email: string;
-          phone: string;
+          message: string;
 }
 
 const contactSchema = new Schema<IContact>(
           {
+                    name: {
+                              type: String,
+                              required: true,
+                              trim: true,
+                    },
                     email: {
                               type: String,
                               required: true,
-                              unique: true, 
+                              trim: true,
                     },
-                    phone: {
+                    message: {
                               type: String,
                               required: true,
-                              //I didnt make phone unique because multiple contacts can have the same phone number
                     },
           },
           { timestamps: true }
