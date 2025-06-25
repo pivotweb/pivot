@@ -8,6 +8,6 @@ router.get("/", (req, res) => {
 });
 
 // Newsletter subscription route
-router.post("/newsletter/subscribe", subscribeToNewsletter);
+router.post("/newsletter", subscribeToNewsletter);
 
 export default router;
