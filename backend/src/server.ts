@@ -4,6 +4,7 @@ import routes from "./routes/index.route";
 import { PORT } from "./utils/env";
 //contact route
 import contactRoute from "./routes/contactRoute";
+import { emailRouter } from "./routes/emailRoute";
 
 const app = express();
 connectDB();
@@ -12,6 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/api", contactRoute);
 app.use("/api", routes);
+app.use("/api", emailRouter);
 app.get("/", (req, res) => {
   res.send("Api is running Successfully");
 });
