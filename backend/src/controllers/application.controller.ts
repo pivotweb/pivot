@@ -1,7 +1,7 @@
 // src/controllers/application.controller.ts
 import { Request, Response } from "express";
 import Application from "../models/application.model";
-import { sendAutoResponder } from "../services/email.service";
+import {sendWelcomeEmail}  from "../services/email.service";
 
 export const submitApplication = async (req: Request, res: Response) => {
   try {
@@ -15,7 +15,7 @@ export const submitApplication = async (req: Request, res: Response) => {
     }
 
     const createdApp = await Application.create(data);
-    await sendAutoResponder(createdApp.email, createdApp.fullName);
+    await sendWelcomeEmail(createdApp.email, createdApp.fullName, "Welcome to the Program!");
 
     return res
       .status(201)
