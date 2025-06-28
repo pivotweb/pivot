@@ -1,8 +1,3 @@
-// emailTemplate.ts
-/**
- * Generates a “Welcome” email with a friendly greeting and a prominent call-to-action link.
- * Return shape is convenient for Nodemailer: { subject, html }.
- */
 export const welcomeEmailTemplate = (
           firstName: string,
           link: string,
