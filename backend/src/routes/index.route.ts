@@ -1,9 +1,10 @@
 import { Router } from "express";
+import routes from "./application.route";
+import contactRoute from "./contactRoute";
 
 const router = Router();
 
-router.get("/", (req, res) => {
-  res.send("Hello World!");
-});
+router.use("/application", routes);
+router.use("/contact", contactRoute);
 
 export default router;
