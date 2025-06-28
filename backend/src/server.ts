@@ -1,17 +1,24 @@
 import express from "express";
+import cors from "cors";
 import connectDB from "./config/db";
 import routes from "./routes/index.route";
 import { PORT } from "./utils/env";
-//contact route
-import contactRoute from "./routes/contactRoute";
-import { emailRouter } from "./routes/emailRoute";
 
 const app = express();
 connectDB();
+
+app.use(
+  cors({
+    origin: ["https://thepivotsite.netlify.app", "http://localhost:3000"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
+
 //Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use("/api", contactRoute);
+
 app.use("/api", routes);
 app.get("/", (req, res) => {
   res.send("Api is running Successfully");
