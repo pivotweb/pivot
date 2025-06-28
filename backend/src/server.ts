@@ -9,7 +9,7 @@ connectDB();
 
 app.use(
   cors({
-    origin: ["https://thepivotsite.netlify.app", "http://localhost:3000"],
+    origin: ["https://thepivotsite.netlify.app", "http://localhost:5173"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
